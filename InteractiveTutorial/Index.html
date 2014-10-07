@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-2.1.1.js"></script>
+    <script src="Scripts/jquery.tutorial.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // Handler for .ready() called.
+            // Usage of API
+            $("#tutorialContainer").tutorial({
+                steps: [
+                    {
+                        action: { click: "#Button1" },
+                        text: "You should click Button1",
+                        highlight: 'glow'
+                    },
+                    {
+                        action: { click: "#Button2" },
+                        text: "You should click Button2",
+                        highlight: 'glow'
+                    },
+                    {
+                        action: {
+                            change: {
+                                target: "#textfield",
+                                verify: function (event) {
+                                    var length = this.val().length;
+                                    console.log(length);
+                                    return length > 50;
+                                }
+                            }
+                        },
+                        text: "You should write at least 50 characters",
+                        highlight: 'glow'
+                    },
+                    {
+                        action: function () { return true; },
+                        text: "Your stuck, cause custom functions as an action aint implemented :P",
+                        highlight: 'glow'
+                    },
+                    {
+                        action: { click: "#Button3" },
+                        text: "You should click Button3",
+                        highlight: 'glow'
+                    }
+                ]
+            });
+        });
+
+    </script>
+    <style type="text/css">
+        .tutorial {
+            width: 200px;
+            height: 400px;
+            background-color: pink;
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <button id="Button1">Button 1</button>
+    <button id="Button2">Button 2</button>
+    <textarea id="textfield">You should write some text here</textarea>
+    <button id="Button3">Button 3</button>
+
+    <div id="tutorialContainer"></div>
+</body>
+</html>
