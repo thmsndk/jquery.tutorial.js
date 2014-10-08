@@ -1,12 +1,5 @@
 ﻿// Create closure
 $(function ($) {
-    /*
-     * Future Features
-     * Skip Tutorial
-     * Store state across page loads?
-     * 
-     */
-
 
     $.fn.tutorial = function (options) {
 
@@ -16,13 +9,13 @@ $(function ($) {
 
         // generating the same tutorial on multiple elements does not make much sense, might just return this instead and always only expect one element.
 
-        
+
         //return this.each(function () {
         //    // Do something to each element here.
 
         //});
 
-        self.stepStart = function() {
+        self.stepStart = function () {
 
             var data = self.data("tutorial");
 
@@ -41,7 +34,7 @@ $(function ($) {
                 // runtime validation, perhaps prevalidate options?
                 throw new TypeError("Functions are not yet supported as a stepaction");
             }
-            
+
             for (var action in stepAction) {
 
                 var actionOptions = stepAction[action];
@@ -56,9 +49,9 @@ $(function ($) {
         };
 
         self.stepComplete = function (sender, event) {
-            
+
             $(sender).unbind(event);
-            
+
             // Raise step-complete
 
             // initialize new step
@@ -74,7 +67,7 @@ $(function ($) {
 
             self.stepStart();
         };
-        
+
         // initialize tutorial data
         this.addClass("tutorial");
 
@@ -86,7 +79,7 @@ $(function ($) {
         });
 
         self.stepStart();
-            
+
         return this;
 
         // events / callbacks:
@@ -158,14 +151,14 @@ $(function ($) {
                     // TODO: handle a plain object as verify options where you can specify length, exact text?, partial text?
 
                     if ($.isFunction(options.verify)) {
-                        
+
                         if (options.verify.call($(this), event)) {
                             callback(this, event);
                         }
                     }
-                    
-                    
-                    
+
+
+
                 });
             }
         }

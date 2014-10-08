@@ -34,3 +34,12 @@ $("#tutorialContainer").tutorial({
     ]
 });
 ```
+
+Here is a fiddle with an example
+http://jsfiddle.net/a1j5nq3y/4/
+
+Future Features  
+
+* highlighting of area where you need to peform the action
+* Skip Tutorial
+* Store state across page loads?
