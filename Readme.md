@@ -37,7 +37,7 @@ $("#tutorialContainer").tutorial({
             highlight: {
                 css: {
                     target: "#textfield",
-                    style: function (options) { $(options.target).addClass("glow"); }, // What about cleanup? how does the css highlighter cleanup the action performed by that function?
+                    style: function (options) { $(options.target).addClass("glow"); },
                     cleanup: function (options) { $(options.target).removeClass("glow"); }
                 }
             }
