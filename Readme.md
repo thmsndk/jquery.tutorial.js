@@ -10,12 +10,17 @@ $("#tutorialContainer").tutorial({
         {
             action: { click: "#Button1" },
             text: "You should click Button1",
-            highlight: 'glow'
+            highlight: { glow: "#Button1" }
         },
         {
             action: { click: "#Button2" },
             text: "You should click Button2",
-            highlight: 'glow'
+            highlight: {
+                css: {
+                    target: "#Button2",
+                    style: "glow"
+                }
+            }
         },
         {
             action: {
@@ -29,10 +34,16 @@ $("#tutorialContainer").tutorial({
                 }
             },
             text: "You should write at least 50 characters",
-            highlight: 'glow'
+            highlight: {
+                css: {
+                    target: "#textfield",
+                    style: function (options) { $(options.target).addClass("glow"); }, // What about cleanup? how does the css highlighter cleanup the action performed by that function?
+                    cleanup: function (options) { $(options.target).removeClass("glow"); }
+                }
+            }
         }
     ]
-});
+}).start();
 ```
 
 Here is a fiddle with an example
@@ -40,6 +51,5 @@ http://jsfiddle.net/a1j5nq3y/4/
 
 Future Features  
 
-* highlighting of area where you need to peform the action
 * Skip Tutorial
 * Store state across page loads?

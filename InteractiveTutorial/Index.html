@@ -13,12 +13,17 @@
                     {
                         action: { click: "#Button1" },
                         text: "You should click Button1",
-                        highlight: 'glow'
+                        highlight: { glow: "#Button1" }
                     },
                     {
                         action: { click: "#Button2" },
                         text: "You should click Button2",
-                        highlight: 'glow'
+                        highlight: {
+                            css: {
+                                target: "#Button2",
+                                style: "glow"
+                            }
+                        }
                     },
                     {
                         action: {
@@ -32,20 +37,26 @@
                             }
                         },
                         text: "You should write at least 50 characters",
-                        highlight: 'glow'
-                    },
-                    {
-                        action: function () { return true; },
-                        text: "Your stuck, cause custom functions as an action aint implemented :P",
-                        highlight: 'glow'
-                    },
-                    {
-                        action: { click: "#Button3" },
-                        text: "You should click Button3",
-                        highlight: 'glow'
+                        highlight: {
+                            css: {
+                                target: "#textfield",
+                                style: function (options) { $(options.target).addClass("glow"); }, // What about cleanup? how does the css highlighter cleanup the action performed by that function?
+                                cleanup: function (options) { $(options.target).removeClass("glow"); }
+                            }
+                        }
                     }
+                    //{
+                    //    action: function () { return true; },
+                    //    text: "Your stuck, cause custom functions as an action aint implemented :P",
+                    //    highlight: 'glow'
+                    //},
+                    //{
+                    //    action: { click: "#Button3" },
+                    //    text: "You should click Button3",
+                    //    highlight: 'glow'
+                    //}
                 ]
-            });
+            }).start();
         });
 
     </script>
@@ -55,6 +66,13 @@
             height: 400px;
             background-color: pink;
             position: fixed;
+        }
+
+        .glow {
+            box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+            padding: 3px 0px 3px 3px;
+            margin: 5px 1px 3px 0px;
+            border: 1px solid rgba(81, 203, 238, 1);
         }
     </style>
 </head>
