@@ -47,9 +47,14 @@ $("#tutorialContainer").tutorial({
 ```
 
 Here is a fiddle with an example
-http://jsfiddle.net/a1j5nq3y/4/
+http://jsfiddle.net/a1j5nq3y/5/
 
 Future Features  
 
 * Skip Tutorial
 * Store state across page loads?
+
+Since this is my first project on github I haven't done much with this page yet
+http://thmsndk.github.io/jquery.tutorial.js
+
+I intend to host demo pages and examples there though
