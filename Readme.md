@@ -51,8 +51,10 @@ http://jsfiddle.net/a1j5nq3y/5/
 
 Future Features  
 
+* Templates/customization for the content of the tutorial container
 * Skip Tutorial
 * Store state across page loads?
+* and probably more I haven't thought of yet :P
 
 Since this is my first project on github I haven't done much with this page yet
 http://thmsndk.github.io/jquery.tutorial.js
